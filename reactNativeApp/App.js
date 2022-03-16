@@ -6,11 +6,20 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Button, SafeAreaView, StyleSheet, Text} from 'react-native';
 
 const App = () => {
-  const showExplanation = true;
+  const [showExplanation, setShowExplanation] = useState(true);
+
+  const handleInstructionsPress = () => {
+    setShowExplanation(prevState => !prevState);
+  };
+
+  useEffect(() => {
+    // acción cuando cambia la variable showExplanation
+    console.log('nuevo valor', showExplanation);
+  }, [showExplanation]);
 
   return (
     <SafeAreaView style={styles.contentView}>
@@ -19,6 +28,11 @@ const App = () => {
       {showExplanation && (
         <Text>Aquí tienes tu lista de tareas pendientes</Text>
       )}
+
+      <Button
+        title={`${showExplanation ? 'Ocultar' : 'Mostrar'} instrucciones`}
+        onPress={handleInstructionsPress}
+      />
     </SafeAreaView>
   );
 };
