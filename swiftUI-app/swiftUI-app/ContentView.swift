@@ -26,6 +26,10 @@ struct ContentView: View {
             
             Spacer()
         }
+        .onChange(of: showExplanation) { newValue in
+            // acción cuando cambia la variable showExplanation
+            print("nuevo valor \(newValue)")
+        }
     }
 }
 
