@@ -17,6 +17,14 @@ struct ContentView: View {
             if showExplanation {
                 Text("Aquí tienes tu lista de tares pendientes")
                     .padding(.vertical)
+                    .onAppear {
+                        // acción cuando el componente es montado
+                        print("Estoy montado")
+                    }
+                    .onAppear {
+                        // acción cuando el componente es desmontado
+                        print("Estoy desmontado")
+                    }
             }
             
             Button("\(showExplanation ? " Ocultar" : "Mostrar") instrucciones") {
