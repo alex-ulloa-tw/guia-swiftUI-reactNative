@@ -17,6 +17,15 @@ const App = () => {
   };
 
   useEffect(() => {
+    // acción cuando el componente es montado
+    console.log('Estoy montado');
+    return () => {
+      // acción cuando el componente es desmontado
+      console.log('Estoy desmontado');
+    };
+  }, []);
+
+  useEffect(() => {
     // acción cuando cambia la variable showExplanation
     console.log('nuevo valor', showExplanation);
   }, [showExplanation]);
