@@ -21,7 +21,7 @@ struct ContentView: View {
                         // acción cuando el componente es montado
                         print("Estoy montado")
                     }
-                    .onAppear {
+                    .onDisappear {
                         // acción cuando el componente es desmontado
                         print("Estoy desmontado")
                     }
