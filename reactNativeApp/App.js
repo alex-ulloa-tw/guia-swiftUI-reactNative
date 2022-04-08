@@ -12,9 +12,11 @@ import {Button, SafeAreaView, StyleSheet, Text, TextInput} from 'react-native';
 const App = () => {
   const [showExplanation, setShowExplanation] = useState(true);
   const [newTodo, setNewTodo] = useState('');
+  const [timesPressed, setTimesPressed] = useState(0);
 
   const handleInstructionsPress = () => {
     setShowExplanation(prevState => !prevState);
+    setTimesPressed(prevState => prevState + 1);
   };
 
   const handleChangeText = text => {
@@ -54,6 +56,10 @@ const App = () => {
         placeholder="Ingrese el nuevo todo"
         style={styles.textInput}
       />
+
+      <Text style={styles.normalText}>
+        El botón se presionó: {timesPressed} veces
+      </Text>
     </SafeAreaView>
   );
 };
@@ -65,6 +71,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
+  },
+  normalText: {
+    fontSize: 20,
+    color: '#A348A6',
+    marginTop: 20,
   },
   textInput: {
     borderColor: '#979797',
